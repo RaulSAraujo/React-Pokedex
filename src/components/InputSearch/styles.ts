@@ -15,7 +15,7 @@ export const InputStyle = styled.input`
     background: rgb(242, 242, 242);
     text-align: center;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 500;
     color: grey;
 
     &::placeholder {
@@ -24,13 +24,13 @@ export const InputStyle = styled.input`
     };
 
     &:focus {
-        border: 2px solid grey;
+        border: 2px solid #ede9e8;
         outline: none;
     }
 `
 
 export const SearchIcon = styled(FaSearch)`
-  color: #999;
+  color: grey;
   font-size: 20px;
   position: absolute;
   left: 20px;
