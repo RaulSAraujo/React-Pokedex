@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { Card } from '../../components/Card';
 import { InputSearch } from '../../components/InputSearch';
 import { Container, Header, ContainerListCard, Svg, ContainerButton, ButtonMore } from './styles';
+import homeIcon from '../../assets/favicon.ico';
 
 interface PokemonProps {
     id: string;
@@ -58,6 +59,14 @@ export const Home = () => {
         else handlePokemonsListDefault();
     }, [pokemonSearch, handlePokemonsListDefault, handleSearchPokemons]);
 
+    useEffect(() => {
+        document.title = "Home pokedex";
+        const favicon = document.querySelector("link[rel~='icon']");
+        if (favicon) {
+            (favicon as HTMLLinkElement).href = homeIcon;
+        }
+
+    }, []);
 
     return (
         <Container>
