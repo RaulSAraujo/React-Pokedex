@@ -24,17 +24,17 @@ Esse projeto é uma inspiração de um app mobile sobre pokémons, tal [layout](
 
 - [x] **Buscar pokémons**: Método para filtrar os pokémons a partir do seu nome.
 
-- [] **Efeito no cartão do pokémon**: Criar uma animação ao usuário apresentar foco no cartão do pokémon.
+- [ ] **Efeito no cartão do pokémon**: Criar uma animação ao usuário apresentar foco no cartão do pokémon.
 
-- [] **Selecionar pokémon**: Criar uma página na aplicação com mais detalhes sobre o pokémon escolhido.
+- [ ] **Selecionar pokémon**: Criar uma página na aplicação com mais detalhes sobre o pokémon escolhido.
 
-- [] **Criar seções do pokémons**: Separar as informações do pokémon em três seções: Sobre, Estatísticas, Evoluções.
+- [ ] **Criar seções do pokémons**: Separar as informações do pokémon em três seções: Sobre, Estatísticas, Evoluções.
 
-- [] **Seção Sobre**: Dados básicos sobre o pokémon, como altura, peso, fraquezas.
+- [ ] **Seção Sobre**: Dados básicos sobre o pokémon, como altura, peso, fraquezas.
 
-- [] **Seção Estatísticas**: Pontos de batalha do pokémon, como vida, ataque, defesa, velocidade, especial ataque e especial defesa.
+- [ ] **Seção Estatísticas**: Pontos de batalha do pokémon, como vida, ataque, defesa, velocidade, especial ataque e especial defesa.
 
-- [] **Seção Evoluções**: Construir a árvore de evolução do pokémon.
+- [ ] **Seção Evoluções**: Construir a árvore de evolução do pokémon.
 
 ## :rocket: Tecnologias
 
