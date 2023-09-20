@@ -1,11 +1,6 @@
 import styled, { css } from "styled-components";
-import { Link } from 'react-router-dom';
 
 import Pokeball from '../../assets/pokeball.svg';
-
-interface BoxProps {
-  color: string;
-}
 
 export const Container = styled.div<{ color?: string }>`
     position: relative;
