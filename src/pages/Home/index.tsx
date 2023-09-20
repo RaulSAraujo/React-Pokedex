@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { Card } from '../../components/Card';
 import { InputSearch } from '../../components/InputSearch';
-import { Container, Header, ContainerListCard, Svg } from './styles';
+import { Container, Header, ContainerListCard, Svg, ContainerButton, ButtonMore } from './styles';
 
 interface PokemonProps {
     id: string;
@@ -26,20 +26,15 @@ export const Home = () => {
     }, []);
 
     const handleSearchPokemons = useCallback(async () => {
+        const response = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=750`);
+
         setPokemonSearch(pokemonSearch.toLocaleLowerCase());
-        const pokemonsSearch = pokemons.filter(
+
+        const pokemonsSearch = response.data.results.filter(
             ({ name }: PokemonProps) => name.includes(pokemonSearch),
         );
         setPokemons(pokemonsSearch);
     }, [pokemonSearch]);
-
-    useEffect(() => {
-        // A busca é só feita quando a string tiver 2 ou mais caracteres
-        const isSearch = pokemonSearch.length >= 2;
-
-        if (isSearch) handleSearchPokemons();
-        else handlePokemonsListDefault();
-    }, [pokemonSearch, handlePokemonsListDefault, handleSearchPokemons]);
 
     const handleMorePokemons = useCallback(
         async (offset: any) => {
@@ -55,6 +50,14 @@ export const Home = () => {
         },
         [NUMBER_POKEMONS],
     );
+
+    useEffect(() => {
+        const isSearch = pokemonSearch.length >= 2;
+
+        if (isSearch) handleSearchPokemons();
+        else handlePokemonsListDefault();
+    }, [pokemonSearch, handlePokemonsListDefault, handleSearchPokemons]);
+
 
     return (
         <Container>
@@ -72,14 +75,16 @@ export const Home = () => {
                 ))}
             </ContainerListCard>
 
-            {pokemonSearch.length <= 2 && (
-                <button
-                    type="button"
-                    onClick={() => handleMorePokemons(pokemonsOffsetApi)}
-                >
-                    CARREGAR MAIS
-                </button>
-            )}
+            <ContainerButton>
+                {pokemonSearch.length <= 2 && (
+                    <ButtonMore
+                        type="button"
+                        onClick={() => handleMorePokemons(pokemonsOffsetApi)}
+                    >
+                        CARREGAR MAIS
+                    </ButtonMore>
+                )}
+            </ContainerButton>
         </Container>
     )
 }
