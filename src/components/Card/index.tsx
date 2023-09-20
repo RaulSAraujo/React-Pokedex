@@ -13,7 +13,7 @@ interface PokemonProps {
     type: PokemonTypesProps[];
 }
 
-const backgroundType = {
+const backgroundType: Record<string, string> = {
     bug: '#8BD674',
     dark: '#6F6E78',
     dragon: '#7383B9',
@@ -41,15 +41,15 @@ export const Card: React.FC<{ name: string }> = ({ name }) => {
         axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
             .then((response) => {
                 const { id, types, sprites } = response.data;
-                console.log(response.data)
                 let backgroundColor = types[0].type.name;
                 if (backgroundColor === 'normal') {
                     backgroundColor = types[1].type.name;
                 }
-
+                
+                const color = backgroundType[backgroundColor];
                 setPokemon({
                     id,
-                    backgroundColor: backgroundType[backgroundColor],
+                    backgroundColor: color,
                     image: sprites.other['official-artwork'].front_default,
                     type: types.map((pokemonType: any) => {
                         console.log(pokemonType)
