@@ -42,8 +42,8 @@ export const Card: React.FC<{ name: string }> = ({ name }) => {
             .then((response) => {
                 const { id, types, sprites } = response.data;
                 let backgroundColor = types[0].type.name;
-                if (backgroundColor === 'normal') {
-                    backgroundColor = types[1].type.name;
+                if (backgroundColor === 'normal' && types[1]) {
+                    backgroundColor = types[1]?.type.name;
                 }
                 
                 const color = backgroundType[backgroundColor];
