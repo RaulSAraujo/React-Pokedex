@@ -4,6 +4,7 @@ import { Container, ContainerText, ImgPokemon, ImgPokeball, PokemonName, Pokemon
 
 interface PokemonTypesProps {
     name: string;
+    color: string;
 }
 
 interface PokemonProps {
@@ -14,6 +15,27 @@ interface PokemonProps {
 }
 
 const backgroundType: Record<string, string> = {
+    bug: '#8CB230',
+    dark: '#58575F',
+    dragon: '#0F6AC0',
+    electric: '#EED535',
+    fairy: '#ED6EC7',
+    fighting: '#D04164',
+    fire: '#FD7D24',
+    flying: '#748FC9',
+    ghost: '#556AAE',
+    grass: '#62B957',
+    ground: '#DD7748',
+    ice: '#61CEC0',
+    normal: '#9DA0AA',
+    poison: '#A552CC',
+    psychic: '#EA5D60',
+    rock: '#BAAB82',
+    steel: '#417D9A',
+    water: '#4A90DA',
+}
+
+const background: Record<string, string> = {
     bug: '#8BD674',
     dark: '#6F6E78',
     dragon: '#7383B9',
@@ -45,16 +67,16 @@ export const Card: React.FC<{ name: string }> = ({ name }) => {
                 if (backgroundColor === 'normal' && types[1]) {
                     backgroundColor = types[1]?.type.name;
                 }
-                
+
                 const color = backgroundType[backgroundColor];
                 setPokemon({
                     id,
                     backgroundColor: color,
                     image: sprites.other['official-artwork'].front_default,
                     type: types.map((pokemonType: any) => {
-                        console.log(pokemonType)
                         return {
-                            name: pokemonType.type.name
+                            name: pokemonType.type.name,
+                            color: background[pokemonType.type.name]
                         }
                     }),
                 });
@@ -74,7 +96,7 @@ export const Card: React.FC<{ name: string }> = ({ name }) => {
                     {pokemon.type && (
                         <div>
                             {pokemon.type.map(pokemonType => (
-                                <PokemonType key={pokemonType.name}>{pokemonType.name}</PokemonType>
+                                <PokemonType key={pokemonType.name} color={pokemonType.color}>{pokemonType.name}</PokemonType>
                             ))}
                         </div>
                     )}

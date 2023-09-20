@@ -11,6 +11,16 @@ export const Container = styled.div<{ color?: string }>`
     box-shadow: 1px 3px 12px 0 rgba(0, 0, 0, 0.3);
     transition: all ease 0.5s;
 
+    &:hover{
+      cursor: pointer;
+      border-radius: 15px;
+
+      > image {
+        filter: grayscale(0);
+        top: -35px;
+      }
+    }
+
     ${({ color }) => css`
     background: ${color}; 
     `};
@@ -28,7 +38,7 @@ export const ContainerText = styled.div`
     padding-left: 30px;
 `
 
-export const ImgPokeball = styled.image`
+export const ImgPokeball = styled.div`
     background-image: url(${Pokeball});
     background-repeat: no-repeat;
     background-size: 100px;
@@ -52,6 +62,10 @@ export const ImgPokemon = styled.image<{ url?: string }>`
     height: 200px;
     width: 200px;
 
+    filter: grayscale(100%);
+    -webkit-transition: -webkit-filter 400ms ease;
+    transition: all ease 0.4s;
+
     ${({ url }) => css`
         background-image: url(${url});
     `};
@@ -72,16 +86,17 @@ export const PokemonNumber = styled.span`
   color: white;
 `;
 
-export const ContainerType = styled.div`
+export const ContainerType = styled.div<{ color?: string }>`
     display: flex;
     flex-direction: row;
     -webkit-box-align: center;
     align-items: center;
     margin-top: 14px;
+
 `
 
 export const PokemonType = styled.span`
-  border: 1px solid #ccc;
+  border: 1px solid transparent;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 10px;
@@ -90,4 +105,8 @@ export const PokemonType = styled.span`
   font-size: 16px;
   font-weight: bold;
   color: white;
+
+  ${({ color }) => css`
+    background-color: ${color}; 
+  `};
 `;
