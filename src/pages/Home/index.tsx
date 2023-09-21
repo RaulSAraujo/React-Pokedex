@@ -60,7 +60,7 @@ export const Home = () => {
     }, [pokemonSearch, handlePokemonsListDefault, handleSearchPokemons]);
 
     useEffect(() => {
-        document.title = "Home pokedex";
+        document.title = "Pokédex";
         const favicon = document.querySelector("link[rel~='icon']");
         if (favicon) {
             (favicon as HTMLLinkElement).href = homeIcon;

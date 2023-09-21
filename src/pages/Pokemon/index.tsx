@@ -17,6 +17,7 @@ import {
     ContainerMenu
 } from './style.ts'
 import { FaChevronLeft } from 'react-icons/fa';
+import pokemonIcon from '../../assets/pokebola-aberta.png';
 
 interface PokemonTypesProps {
     name: string;
@@ -133,6 +134,15 @@ export const Pokemon = () => {
             });
         });
     }, [name]);
+
+    useEffect(() => {
+        document.title = `Pokemon ${name}`;
+        const favicon = document.querySelector("link[rel~='icon']");
+        if (favicon) {
+            (favicon as HTMLLinkElement).href = pokemonIcon;
+        }
+
+    }, []);
 
 
     return (
