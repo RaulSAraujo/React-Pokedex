@@ -35,7 +35,7 @@ export const ContainerName = styled.div`
 
 export const StyledName = styled.h1<{ color?: string }>`
     font-weight: bold;
-    font-size: 12vw;
+    font-size: 11vw;
     text-align: center;
     text-transform: uppercase;
     background: -webkit-linear-gradient(
@@ -101,7 +101,7 @@ export const PokemonNumber = styled.p`
     font-size: 30px;
     letter-spacing: 2px;
     line-height: 32px;
-    color: black;
+    color: grey;
 `;
 
 export const ContainerType = styled.div<{ color?: string }>`
