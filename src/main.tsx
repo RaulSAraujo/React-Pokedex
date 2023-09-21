@@ -11,7 +11,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/pokemon' element={<Pokemon />} />
+        <Route path='/pokemon/:name' element={<Pokemon />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

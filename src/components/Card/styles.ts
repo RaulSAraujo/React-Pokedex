@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
-
+import { Link } from 'react-router-dom';
 import Pokeball from '../../assets/pokeball.svg';
 
-export const Container = styled.div<{ color?: string }>`
+export const Container = styled(Link)<{ color?: string }>`
     position: relative;
     display: flex;
     height: 180px;
@@ -10,6 +10,7 @@ export const Container = styled.div<{ color?: string }>`
     border-radius: 6px;
     box-shadow: 1px 3px 12px 0 rgba(0, 0, 0, 0.3);
     transition: all ease 0.5s;
+    text-decoration: none;
 
     &:hover{
       cursor: pointer;
@@ -22,7 +23,7 @@ export const Container = styled.div<{ color?: string }>`
     }
 
     ${({ color }) => css`
-    background: ${color}; 
+      background: ${color}; 
     `};
 `
 

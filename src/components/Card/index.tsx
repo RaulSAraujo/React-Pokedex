@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, ContainerText, ImgPokemon, ImgPokeball, PokemonName, PokemonNumber, ContainerType, PokemonType } from './styles'
 
+
 interface PokemonTypesProps {
     name: string;
     color: string;
@@ -14,7 +15,7 @@ interface PokemonProps {
     type: PokemonTypesProps[];
 }
 
-const backgroundType: Record<string, string> = {
+const background: Record<string, string> = {
     bug: '#8CB230',
     dark: '#58575F',
     dragon: '#0F6AC0',
@@ -35,7 +36,7 @@ const backgroundType: Record<string, string> = {
     water: '#4A90DA',
 }
 
-const background: Record<string, string> = {
+const backgroundType: Record<string, string> = {
     bug: '#8BD674',
     dark: '#6F6E78',
     dragon: '#7383B9',
@@ -87,7 +88,7 @@ export const Card: React.FC<{ name: string }> = ({ name }) => {
     }, [name]);
 
     return (
-        <Container color={pokemon.backgroundColor}>
+        <Container to={`pokemon/${name}`} color={pokemon.backgroundColor}>
             <ContainerText>
                 <PokemonNumber>#{pokemon.id}</PokemonNumber>
                 <PokemonName>{name}</PokemonName>
